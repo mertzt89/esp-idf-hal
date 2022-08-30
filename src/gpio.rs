@@ -785,7 +785,7 @@ impl<'d, T: Pin, MODE> PinDriver<'d, T, MODE> {
     where
         MODE: InputMode,
     {
-        !self.is_low()
+        self.get_level().into()
     }
 
     #[inline]
@@ -793,7 +793,7 @@ impl<'d, T: Pin, MODE> PinDriver<'d, T, MODE> {
     where
         MODE: InputMode,
     {
-        self.get_level().into()
+        !self.is_high()
     }
 
     #[inline]
